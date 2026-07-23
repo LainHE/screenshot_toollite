@@ -37,20 +37,20 @@
 #### 方法2：从源码编译
 
 bash
-1. 克隆项目
-git clone <repository-url>
+1. 克隆项目  
+`git clone <repository-url>`
 
-2. 进入项目目录
-cd screenshot-tool
+2. 进入项目目录  
+`cd screenshot-tool`
 
-3. 编译项目
-dotnet build
+3. 编译项目  
+`dotnet build`
 
-4. 发布（框架依赖部署）
-dotnet publish -c Release -r win-x64 --self-contained false
+4. 发布（框架依赖部署）  
+`dotnet publish -c Release -r win-x64 --self-contained false`
 
-5. 运行程序
-dotnet run --project ScreenshotTool.csproj
+5. 运行程序  
+`dotnet run --project ScreenshotTool.csproj`
 
 ### 使用方法
 
@@ -85,16 +85,16 @@ dotnet run --project ScreenshotTool.csproj
 
 ## 📁 项目结构
 
-screenshot-tool/
-├── build/ # 构建输出目录
-│ └── bin/ # 编译生成的文件
-├── Screenshots/ # 截图保存目录
-├── Directory.Build.props # 构建配置文件
-├── Program.cs # 程序入口点
-├── ScreenCapturer.cs # 截图功能实现
-├── TriggerButtonForm.cs # 主界面和触发逻辑
-├── ScreenshotTool.csproj # 项目文件
-└── README.md # 项目说明文档
+screenshot-tool/  
+├── build/ # 构建输出目录  
+│ └── bin/ # 编译生成的文件  
+├── Screenshots/ # 截图保存目录  
+├── Directory.Build.props # 构建配置文件  
+├── Program.cs # 程序入口点  
+├── ScreenCapturer.cs # 截图功能实现  
+├── TriggerButtonForm.cs # 主界面和触发逻辑  
+├── ScreenshotTool.csproj # 项目文件  
+└── README.md # 项目说明文档  
 
 ## ⚙️ 配置说明
 
@@ -143,25 +143,25 @@ xml
 ### 关键功能实现
 
 #### 多显示器支持
-
-csharp
-// 获取当前鼠标所在的显示器
-Screen currentScreen = Screen.FromPoint(Cursor.Position);
-
+```
+csharp  
+// 获取当前鼠标所在的显示器  
+Screen currentScreen = Screen.FromPoint(Cursor.Position);  
+```
 #### 悬浮按钮定位
-
-csharp
-// 定位到显示器右下角
-var work = currentScreen.WorkingArea;
-Location = new Point(work.Right - Width - 20, work.Bottom - Height - 20);
-
+```
+csharp  
+// 定位到显示器右下角  
+var work = currentScreen.WorkingArea;  
+Location = new Point(work.Right - Width - 20, work.Bottom - Height - 20);  
+```
 #### 截图保存
-
-csharp
-// 生成文件名
-string fileName = $"屏幕截图_{DateTime.Now:yyyyMMdd_HHmmss}.png";
-string filePath = Path.Combine(screenshotsPath, fileName);
-
+```
+csharp  
+// 生成文件名  
+string fileName = $"屏幕截图_{DateTime.Now:yyyyMMdd_HHmmss}.png";  
+string filePath = Path.Combine(screenshotsPath, fileName);  
+```
 ## 🐛 故障排除
 
 ### 常见问题
